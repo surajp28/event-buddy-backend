@@ -1,0 +1,5 @@
+com/example/eventbuddybackend/respositories/UserRepository.class
+com/example/eventbuddybackend/EventbuddyBackendApplication.class
+com/example/eventbuddybackend/models/User.class
+com/example/eventbuddybackend/controllers/UserController.class
+com/example/eventbuddybackend/services/UserService.class
