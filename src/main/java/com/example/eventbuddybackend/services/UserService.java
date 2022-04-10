@@ -29,7 +29,7 @@ public class UserService {
 	        String passwordU=MD5Utils.inputPassToFormPass(user.getPassword());
 	        if(existinguser.getPassword().equals(passwordU)) {
 	        	String role=existinguser.getRole();
-	                return role;
+	                return role + " " +  existinguser.getUser_id();
 	        }
 	        return "Incorrect password";
     	}
