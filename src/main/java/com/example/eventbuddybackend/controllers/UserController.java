@@ -5,6 +5,8 @@ import com.example.eventbuddybackend.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,5 +32,16 @@ public class UserController {
     @PostMapping("/users/passwordReset")
     public String passwordReset(@Valid @RequestBody User user) {
     	return userService.updatePassword(user);
+    }
+    
+    @GetMapping(value="/users/{userid}")
+    public User getUserByUserid(@PathVariable("userid") long userid) {
+    	//return userService.getUserdetailsByUsername(username);
+    	return userService.getUserByUserid(userid);
+    }
+    
+    @PostMapping("/users/updateuser")
+    public String updateUserDetails(@Valid @RequestBody User user) {
+    	return userService.updateUserDetails(user);
     }
 }

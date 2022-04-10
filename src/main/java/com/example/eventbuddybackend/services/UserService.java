@@ -4,7 +4,10 @@ import com.example.eventbuddybackend.models.User;
 import com.example.eventbuddybackend.respositories.UserRepository;
 import com.example.eventbuddybackend.tools.MD5Utils;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +60,23 @@ public class UserService {
         	return "Successful";
     	}
     }
+    
+    @Transactional
+   	public String updateUserDetails(@Valid User user) {
+       	String username=user.getUser_name();
+       	String first_name=user.getFirst_name();
+       	String last_name=user.getLast_name();
+       	Date dob=user.getDob();
+       	String email_id=user.getEmail_id();
+       	long postal_code=user.getPostal_code();
+       	long phone=user.getPhone();
+       	userRepository.updateUser(first_name,last_name,dob,email_id,postal_code,phone,username);
+       	return "Successful";
+       }
+
+       public User getUserByUserid(long user_id) {
+       	return userRepository.getUserByUserId(user_id);
+       }
 }
 
 
