@@ -43,11 +43,13 @@ public class Events {
     @Column(name="user_id")
     private long user_id;
     
+
     @Column(name="time")
     private long time;
     
     @Column(name="date")
     private Date date;
+
 
 	public long getTime() {
 		return time;

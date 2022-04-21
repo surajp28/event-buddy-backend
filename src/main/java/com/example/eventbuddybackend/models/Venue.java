@@ -30,8 +30,8 @@ public class Venue {
     @Column(name="pincode")
     private long pincode;
 
-	@Column(name="desc")
-    private String desc;
+	@Column(name="description")
+    private String description;
 	
 	@Column(name="price")
 	private long price;
@@ -74,12 +74,12 @@ public class Venue {
 		this.pincode = pincode;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.description = desc;
 	}
 
 	public long getUser_id() {
