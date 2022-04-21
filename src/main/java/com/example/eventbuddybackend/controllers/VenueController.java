@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.respositories.VenueRepository;
+import com.example.eventbuddybackend.services.EventService;
 import com.example.eventbuddybackend.services.VenueService;
 
 @RestController
@@ -21,6 +22,9 @@ import com.example.eventbuddybackend.services.VenueService;
 public class VenueController {
 	@Autowired
 	VenueService venueService;
+	
+	@Autowired
+	EventService eventservice;
 	
 	@Autowired
 	VenueRepository venueRepository;
@@ -38,6 +42,12 @@ public class VenueController {
     @GetMapping(value="/venue/{userid}")
     public List<Venue> getVenue(@PathVariable("userid") long userid) {
     	return venueService.getVenue(userid);
+    }
+    
+    @GetMapping(value="/venue/findslot/{venue_id}")
+	@CrossOrigin
+    public List<Long> getVenueSlots(@PathVariable("venue_id") long venue_id) {
+    	return eventservice.getVenueSlot(venue_id);
     }
     
 }

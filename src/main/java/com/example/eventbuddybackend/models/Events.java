@@ -43,29 +43,18 @@ public class Events {
     @Column(name="user_id")
     private long user_id;
     
-    @Column(name="start_time")
-    private long start_time;
-    
-    @Column(name="end_time")
-    private long end_time;
+    @Column(name="time")
+    private long time;
     
     @Column(name="date")
     private Date date;
 
-	public long getStart_time() {
-		return start_time;
+	public long getTime() {
+		return time;
 	}
 
-	public void setStart_time(long start_time) {
-		this.start_time = start_time;
-	}
-
-	public long getEnd_time() {
-		return end_time;
-	}
-
-	public void setEnd_time(long end_time) {
-		this.end_time = end_time;
+	public void setTime(long time) {
+		this.time = time;
 	}
 
 	public long getEvent_id() {

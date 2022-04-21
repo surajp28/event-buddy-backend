@@ -1,5 +1,6 @@
 package com.example.eventbuddybackend.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -25,6 +26,16 @@ public class EventService {
 
 	public List<Events> getEvent(long user_id) {
 		return eventRepository.getEventByUserid(user_id);
+	}
+	
+	public List<Long> getVenueSlot(long venue_id) {
+		List<Long> currentslots= new ArrayList<Long>();
+		List<Long> availableslots= new ArrayList<Long>();
+		currentslots=eventRepository.getVenueSlotById(venue_id);
+		for(long i=0;i<23;i++) {
+			if (!currentslots.contains(i)) {availableslots.add(i);}
+		}
+		return availableslots;
 	}
 	
 }

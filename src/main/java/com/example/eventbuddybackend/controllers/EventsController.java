@@ -43,4 +43,5 @@ public class EventsController {
     	return eventService.getEvent(userid);
     }
     
+    
 }

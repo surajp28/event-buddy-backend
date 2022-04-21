@@ -14,5 +14,8 @@ public interface EventRepository extends JpaRepository<Events, Long> {
 	
 	@Query("Select e from Events e WHERE e.user_id = ?1")
 	public List<Events> getEventByUserid(long user_id);
+	
+	@Query("Select e.time from Events e WHERE e.venue_id=?1")
+	public List<Long> getVenueSlotById(long venue_id);
 
 }

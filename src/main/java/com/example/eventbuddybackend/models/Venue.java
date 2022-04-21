@@ -38,7 +38,17 @@ public class Venue {
 	
     @Column(name="user_id")
     private long user_id;
+    
+    @Column(name="imageurl")
+    private String imageurl;
 
+	public String getImageurl() {
+		return imageurl;
+	}
+
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
+	}
 
 	public long getVenue_id() {
 		return venue_id;
