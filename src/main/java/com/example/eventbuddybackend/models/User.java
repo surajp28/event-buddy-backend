@@ -11,7 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 @AllArgsConstructor
@@ -39,7 +39,7 @@ public class User {
     private String last_name;
 
     @Column(name="dob")
-    private Date dob;
+    private LocalDate dob;
     
     @Column(name="email_id")
     private String email_id;
@@ -90,10 +90,10 @@ public class User {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 	public String getEmail_id() {

@@ -6,6 +6,7 @@ import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.respositories.UserRepository;
 import com.example.eventbuddybackend.tools.MD5Utils;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -69,7 +70,7 @@ public class UserService {
        	String username=user.getUser_name();
        	String first_name=user.getFirst_name();
        	String last_name=user.getLast_name();
-       	Date dob=user.getDob();
+       	LocalDate dob=user.getDob();
        	String email_id=user.getEmail_id();
        	long postal_code=user.getPostal_code();
        	long phone=user.getPhone();

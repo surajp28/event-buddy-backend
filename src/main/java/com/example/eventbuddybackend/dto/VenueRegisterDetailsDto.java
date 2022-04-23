@@ -1,5 +1,6 @@
 package com.example.eventbuddybackend.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class VenueRegisterDetailsDto {
@@ -10,7 +11,7 @@ public class VenueRegisterDetailsDto {
     
 	private String first_name;
     
-    private Date date;
+    private LocalDate date;
     
     private long time;
 
@@ -38,15 +39,15 @@ public class VenueRegisterDetailsDto {
 		this.first_name = first_name;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
-	public VenueRegisterDetailsDto(String venue_name, String eventname, String first_name, Date date, long time) {
+	public VenueRegisterDetailsDto(String venue_name, String eventname, String first_name, LocalDate date, long time) {
 		super();
 		this.venue_name = venue_name;
 		this.eventname = eventname;

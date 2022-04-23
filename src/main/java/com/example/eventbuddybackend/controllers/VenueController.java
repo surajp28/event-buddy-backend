@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.eventbuddybackend.dto.EditRegistrationDto;
 import com.example.eventbuddybackend.dto.VenueRegisterDetailsDto;
 import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.models.VenueRegisterDetails;
@@ -56,6 +57,12 @@ public class VenueController {
 	@CrossOrigin
     public List<VenueRegisterDetailsDto> getVenueReservations(@PathVariable("user_id") long user_id) {
     	return venueService.getVenueReservations(user_id);
+    }
+    
+    @PostMapping(value="/venue/editRegistration")
+	@CrossOrigin
+    public String editRegistration(@Valid @RequestBody EditRegistrationDto editRegistrationDto) {
+    	return venueService.editRegistration(editRegistrationDto);
     }
     
 }

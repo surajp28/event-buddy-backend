@@ -1,5 +1,6 @@
 package com.example.eventbuddybackend.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ public class UserDto {
 
     private String last_name;
 
-    private Date dob;
+    private LocalDate dob;
 
     private String email_id;
 
@@ -54,11 +55,11 @@ public class UserDto {
 		this.last_name = last_name;
 	}
 
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 
@@ -86,7 +87,7 @@ public class UserDto {
 		this.phone = phone;
 	}
 
-	public UserDto(long user_id, String user_name, String first_name, String last_name, Date dob, String email_id,
+	public UserDto(long user_id, String user_name, String first_name, String last_name, LocalDate dob, String email_id,
 			long postal_code, long phone) {
 		super();
 		this.user_id = user_id;
