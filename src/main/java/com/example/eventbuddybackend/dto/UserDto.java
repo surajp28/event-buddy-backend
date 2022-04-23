@@ -1,22 +1,44 @@
-package com.example.eventbuddybackend.models;
+package com.example.eventbuddybackend.dto;
 
 import java.util.Date;
 
-public class Userdetails {
+import javax.persistence.Column;
+
+public class UserDto {
+
+    private long user_id;
+	
+    private String user_name;
 
     private String first_name;
 
     private String last_name;
 
     private Date dob;
-    
-	private String email_id;
-    
+
+    private String email_id;
+
     private long postal_code;
 
     private long phone;
 
-    public String getFirst_name() {
+	public long getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getFirst_name() {
 		return first_name;
 	}
 
@@ -64,6 +86,17 @@ public class Userdetails {
 		this.phone = phone;
 	}
 
+	public UserDto(long user_id, String user_name, String first_name, String last_name, Date dob, String email_id,
+			long postal_code, long phone) {
+		super();
+		this.user_id = user_id;
+		this.user_name = user_name;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.dob = dob;
+		this.email_id = email_id;
+		this.postal_code = postal_code;
+		this.phone = phone;
+	}
 
-    
 }
