@@ -1,7 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mysql://us-cdbr-east-05.cleardb.net:3306/heroku_322c7e4597bbe7d?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
-    username: bb7a828cb2156a
-    password: 8c3518fd
-    hikari:
-      maxLifetime: 20000
