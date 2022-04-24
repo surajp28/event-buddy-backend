@@ -1,10 +1,14 @@
 package com.example.eventbuddybackend.services;
 
+import com.example.eventbuddybackend.dto.UserDto;
 import com.example.eventbuddybackend.models.User;
+import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.respositories.UserRepository;
 import com.example.eventbuddybackend.tools.MD5Utils;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -66,7 +70,7 @@ public class UserService {
        	String username=user.getUser_name();
        	String first_name=user.getFirst_name();
        	String last_name=user.getLast_name();
-       	Date dob=user.getDob();
+       	LocalDate dob=user.getDob();
        	String email_id=user.getEmail_id();
        	long postal_code=user.getPostal_code();
        	long phone=user.getPhone();
@@ -74,9 +78,13 @@ public class UserService {
        	return "Successful";
        }
 
-       public User getUserByUserid(long user_id) {
+    public UserDto getUserByUserid(long user_id) {
        	return userRepository.getUserByUserId(user_id);
        }
+
+	public List<UserDto> listAllUsers() {
+		return userRepository.findAllUsers();
+	}
 }
 
 

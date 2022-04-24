@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.eventbuddybackend.dto.EditRegistrationDto;
+import com.example.eventbuddybackend.dto.VenueRegisterDetailsDto;
 import com.example.eventbuddybackend.models.Venue;
+import com.example.eventbuddybackend.models.VenueRegisterDetails;
 import com.example.eventbuddybackend.respositories.VenueRepository;
 import com.example.eventbuddybackend.services.EventService;
 import com.example.eventbuddybackend.services.VenueService;
@@ -44,10 +47,22 @@ public class VenueController {
     	return venueService.getVenue(userid);
     }
     
-    @GetMapping(value="/venue/findslot/{venue_id}")
+    @GetMapping(value="/venue/findSlot/{venue_id}")
 	@CrossOrigin
     public List<Long> getVenueSlots(@PathVariable("venue_id") long venue_id) {
     	return eventservice.getVenueSlot(venue_id);
+    }
+    
+    @GetMapping(value="/venue/getVenueReservations/{user_id}")
+	@CrossOrigin
+    public List<VenueRegisterDetailsDto> getVenueReservations(@PathVariable("user_id") long user_id) {
+    	return venueService.getVenueReservations(user_id);
+    }
+    
+    @PostMapping(value="/venue/editRegistration")
+	@CrossOrigin
+    public String editRegistration(@Valid @RequestBody EditRegistrationDto editRegistrationDto) {
+    	return venueService.editRegistration(editRegistrationDto);
     }
     
 }

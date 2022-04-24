@@ -1,5 +1,6 @@
 package com.example.eventbuddybackend.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -48,7 +49,7 @@ public class Events {
     private long time;
     
     @Column(name="date")
-    private Date date;
+    private LocalDate date;
 
 
 	public long getTime() {
@@ -115,11 +116,11 @@ public class Events {
 		this.user_id = user_id;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
     
