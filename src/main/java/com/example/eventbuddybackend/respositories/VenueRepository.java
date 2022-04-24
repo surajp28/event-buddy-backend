@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.example.eventbuddybackend.dto.EventsRegisterDetailsDto;
 import com.example.eventbuddybackend.dto.VenueRegisterDetailsDto;
 import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.models.VenueRegisterDetails;
@@ -24,6 +25,20 @@ public interface VenueRepository extends JpaRepository<Venue, Long> {
 			+ "e.user_id=u.user_id and "
 			+ "u.user_id=?1")
 	public List<VenueRegisterDetailsDto> getVenueReservationsById(long user_id);
+
+	@Query("Select new com.example.eventbuddybackend.dto.EventsRegisterDetailsDto(e.eventname,v.venue_name,e.eventdesc,e.time,e.date) "
+			+ "FROM Venue v,Events e "
+			+ "WHERE v.venue_id=e.venue_id and "
+			+ "e.user_id=?1")
+	public List<EventsRegisterDetailsDto> getEventsOrganized(long userid);
+	
+	@Query("Select new com.example.eventbuddybackend.dto.EventsRegisterDetailsDto(e.eventname,v.venue_name,e.eventdesc,e.time,e.date) "
+			+ "FROM Venue v,Events e,EventRegister r "
+			+ "WHERE v.venue_id=e.venue_id and "
+			+ "r.event_id=e.event_id "
+			+ "and r.user_id=?1")
+	public List<EventsRegisterDetailsDto> getEventsRegistered(long userid);
+	
 
 //	@Modifying
 //	@Query("DELETE e "

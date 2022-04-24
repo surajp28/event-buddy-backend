@@ -1,9 +1,11 @@
 package com.example.eventbuddybackend.services;
 
+import com.example.eventbuddybackend.dto.EventsRegisterDetailsDto;
 import com.example.eventbuddybackend.dto.UserDto;
 import com.example.eventbuddybackend.models.User;
 import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.respositories.UserRepository;
+import com.example.eventbuddybackend.respositories.VenueRepository;
 import com.example.eventbuddybackend.tools.MD5Utils;
 
 import java.time.LocalDate;
@@ -22,6 +24,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     
+    @Autowired
+    private VenueRepository venueRepository;
     
     //login
     public String validateUser(User user) {
@@ -84,6 +88,14 @@ public class UserService {
 
 	public List<UserDto> listAllUsers() {
 		return userRepository.findAllUsers();
+	}
+
+	public List<EventsRegisterDetailsDto> getEventsRegistered(long userid) {
+		return venueRepository.getEventsRegistered(userid);
+	}
+	
+	public List<EventsRegisterDetailsDto> getEventsOrganized(long userid) {
+		return venueRepository.getEventsOrganized(userid);
 	}
 }
 
