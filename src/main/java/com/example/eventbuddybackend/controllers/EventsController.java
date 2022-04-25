@@ -43,5 +43,11 @@ public class EventsController {
     	return eventService.getEvent(userid);
     }
     
+    @GetMapping(value="/events/bookmark/{event_id}")
+    public String updateBookmark(@PathVariable("event_id") long event_id) {
+    	return eventService.updateBookmark(event_id);
+    }
+    
+    
     
 }

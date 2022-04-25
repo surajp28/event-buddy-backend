@@ -3,6 +3,7 @@ package com.example.eventbuddybackend.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,13 @@ public class EventService {
 			if (!currentslots.contains(i)) {availableslots.add(i);}
 		}
 		return availableslots;
+	}
+	
+	@Transactional
+	public String updateBookmark(long event_id) {
+		eventRepository.updateBookmark(event_id);
+		// TODO Auto-generated method stub
+		return "Successful";
 	}
 	
 }

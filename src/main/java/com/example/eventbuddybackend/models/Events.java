@@ -44,13 +44,33 @@ public class Events {
     @Column(name="user_id")
     private long user_id;
     
-
     @Column(name="time")
     private long time;
     
     @Column(name="date")
     private LocalDate date;
+    
+    @Column(name="imageurl")
+    private String imageurl;
+    
+    @Column(name="bookmark")
+    private long bookmark;
 
+	public long getBookmark() {
+		return bookmark;
+	}
+
+	public void setBookmark(long bookmark) {
+		this.bookmark = bookmark;
+	}
+
+	public String getImageurl() {
+		return imageurl;
+	}
+
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
+	}
 
 	public long getTime() {
 		return time;

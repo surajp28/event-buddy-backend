@@ -2,6 +2,7 @@ package com.example.eventbuddybackend.controllers;
 
 import com.example.eventbuddybackend.dto.EventsRegisterDetailsDto;
 import com.example.eventbuddybackend.dto.UserDto;
+import com.example.eventbuddybackend.models.Events;
 import com.example.eventbuddybackend.models.User;
 import com.example.eventbuddybackend.models.Venue;
 import com.example.eventbuddybackend.services.UserService;
@@ -66,5 +67,12 @@ public class UserController {
     	//return userService.getUserdetailsByUsername(username);
     	return userService.getEventsOrganized(userid);
     }
+    
+    @GetMapping(value="/users/getEventRecommendations/{userid}")
+    public List<Events> getEventRecommendations(@PathVariable("userid") long userid) {
+    	//return userService.getUserdetailsByUsername(username);
+    	return userService.getEventRecommendations(userid);
+    }
+    
     
 }
